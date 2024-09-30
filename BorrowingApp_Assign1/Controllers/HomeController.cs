@@ -1,32 +1,43 @@
-﻿using BorrowingApp_Assign1.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using BorrowingApp_Assign1.Models;
+using BorrowingApp_Assign1.Repositories;
 
 namespace BorrowingApp_Assign1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        // The Index action serves the home page
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult RequestForm()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult RequestForm(Request request)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                RequestRepository.AddRequest(request);
+                return RedirectToAction("Confirmation");
+            }
+            return View(request);
+        }
+
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+
+        public IActionResult Requests()
+        {
+            var requests = RequestRepository.GetAllRequests();
+            return View(requests);
         }
     }
 }

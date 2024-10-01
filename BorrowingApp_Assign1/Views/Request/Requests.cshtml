@@ -1,6 +1,31 @@
-﻿namespace BorrowingApp_Assign1.Views.Request
-{
-    public class Requests
-    {
-    }
-}
+﻿@model IEnumerable<BorrowingApp_Assign1.Models.Request>
+
+<h1>Requests List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Equipment</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Id</td>
+                <td>@request.Name</td>
+                <td>@request.Email</td>
+                <td>@request.PhoneNumber</td>
+                <td>@request.Role</td>
+                <td>@request.Equipment</td>
+                <td>@request.Duration</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BorrowingApp_Assign1.Models
+namespace BorrowingApp_Assign1.Controllers
 {
     public class HomeController : Controller
     {

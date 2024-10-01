@@ -1,6 +1,28 @@
-﻿namespace BorrowingApp_Assign1.Views.Request
-{
-    public class RequestsAdmin
-    {
-    }
-}
+﻿@model IEnumerable<BorrowingApp_Assign1.Models.Request>
+
+<h1>Requests Listing (Admin)</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Equipment Type</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Equipment</td>
+                <td>@request.Name</td>
+                <td>@request.Role</td>
+                <td>
+                    <button class="btn btn-success">Accept</button>
+                    <button class="btn btn-danger">Deny</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

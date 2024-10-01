@@ -1,0 +1,55 @@
+﻿@model BorrowingApp_Assign1.Models.Request
+
+<h1>Equipment Request Form</h1>
+
+<form asp-action="RequestForm" method="post">
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+
+    <div>
+        <label>Role</label>
+        <select asp-for="Role">
+            <option value="Student">Student</option>
+            <option value="Professor">Professor</option>
+        </select>
+        <span asp-validation-for="Role"></span>
+    </div>
+
+    <div>
+        <label>Equipment</label>
+        <select asp-for="Equipment" asp-items="Html.GetEnumSelectList<BorrowingApp_Assign1.Models.EquipmentType>()"></select>
+        <span asp-validation-for="Equipment"></span>
+    </div>
+
+    <div>
+        <label>Duration (days)</label>
+        <input asp-for="Duration" />
+        <span asp-validation-for="Duration"></span>
+    </div>
+
+    <div>
+        <label>Details</label>
+        <textarea asp-for="Details"></textarea>
+    </div>
+
+    <button type="submit">Submit Request</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

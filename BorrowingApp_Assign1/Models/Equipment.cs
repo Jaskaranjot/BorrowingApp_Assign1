@@ -1,6 +1,4 @@
-﻿using BorrowingApp_Assign1.Models;
-
-namespace BorrowingApp_Assign1.Models
+﻿namespace BorrowingApp_Assign1.Models
 {
     public class Equipment
     {

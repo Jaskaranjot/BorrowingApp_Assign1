@@ -16,10 +16,6 @@ namespace BorrowingApp_Assign1.Repositories
         {
             return equipmentList;
         }
-
-        public static List<Equipment> GetAvailableEquipment()
-        {
-            return equipmentList.FindAll(e => e.IsAvailable);
-        }
     }
 }
+

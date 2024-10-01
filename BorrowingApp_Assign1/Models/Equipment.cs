@@ -1,9 +1,11 @@
-﻿namespace BorrowingApp_Assign1.Models
+﻿using BorrowingApp_Assign1.Models;
+
+namespace BorrowingApp_Assign1.Models
 {
     public class Equipment
     {
         public int Id { get; set; }
-        public EquipmentType Type { get; set; }  // Use the already defined EquipmentType
+        public EquipmentType Type { get; set; }
         public string Description { get; set; }
         public bool IsAvailable { get; set; }
     }

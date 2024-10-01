@@ -24,11 +24,11 @@ namespace BorrowingApp_Assign1.Models
 
         [Required]
         [Phone]
-        [RegularExpression(@"\d{3}-\d{3}-\d{4}", ErrorMessage = "Phone number must be in the format xxx-xxx-xxxx.")]
+        [RegularExpression(@"\d{3}-\d{3}-\d{4}", ErrorMessage = "Invalid phone format. Format: xxx-xxx-xxxx")]
         public string PhoneNumber { get; set; }
 
         [Required]
-        public string Role { get; set; } // Either "Student" or "Professor"
+        public string Role { get; set; }
 
         [Required]
         public EquipmentType Equipment { get; set; }

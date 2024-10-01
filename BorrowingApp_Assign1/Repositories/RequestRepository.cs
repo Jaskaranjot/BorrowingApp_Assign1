@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BorrowingApp_Assign1.Models;
+
 
 namespace BorrowingApp_Assign1.Repositories
 {
@@ -17,6 +19,11 @@ namespace BorrowingApp_Assign1.Repositories
         public static List<Request> GetAllRequests()
         {
             return requests;
+        }
+
+        public static List<Request> GetAvailableRequests()
+        {
+            return requests.Where(r => r.Duration > 0).ToList();
         }
     }
 }

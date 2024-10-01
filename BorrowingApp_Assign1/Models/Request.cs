@@ -24,16 +24,17 @@ namespace BorrowingApp_Assign1.Models
 
         [Required]
         [Phone]
+        [RegularExpression(@"\d{3}-\d{3}-\d{4}", ErrorMessage = "Phone number must be in the format xxx-xxx-xxxx.")]
         public string PhoneNumber { get; set; }
 
         [Required]
-        public string Role { get; set; } // Student or Professor
+        public string Role { get; set; } // Either "Student" or "Professor"
 
         [Required]
         public EquipmentType Equipment { get; set; }
 
         [Required]
-        [Range(1, 365, ErrorMessage = "Duration must be between 1 and 365 days.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Duration must be greater than 0.")]
         public int Duration { get; set; }
 
         public string Details { get; set; }

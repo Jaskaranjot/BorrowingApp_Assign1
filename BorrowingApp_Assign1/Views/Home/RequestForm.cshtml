@@ -1,6 +1,6 @@
 ﻿@model BorrowingApp_Assign1.Models.Request
 
-<h1>Request IT Equipment</h1>
+<h1>Equipment Request Form</h1>
 
 <form asp-action="RequestForm" method="post">
     <div>
@@ -32,18 +32,18 @@
 
     <div>
         <label>Equipment</label>
-        <select asp-for="Equipment" asp-items="Html.GetEnumSelectList<EquipmentType>()"></select>
+        <select asp-for="Equipment" asp-items="Html.GetEnumSelectList<BorrowingApp_Assign1.Models.EquipmentType>()"></select>
         <span asp-validation-for="Equipment"></span>
     </div>
 
     <div>
-        <label>Duration (in days)</label>
+        <label>Duration (days)</label>
         <input asp-for="Duration" />
         <span asp-validation-for="Duration"></span>
     </div>
 
     <div>
-        <label>Additional Details</label>
+        <label>Details</label>
         <textarea asp-for="Details"></textarea>
     </div>
 

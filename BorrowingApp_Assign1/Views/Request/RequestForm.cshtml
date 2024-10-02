@@ -1,54 +1,66 @@
 ﻿@model BorrowingApp_Assign1.Models.Request
 
-<h1>Equipment Request Form</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Equipment Request Form</h1>
 
-<form asp-action="RequestForm" method="post">
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-    </div>
+    <form asp-action="RequestForm" method="post">
+        <!-- Name -->
+        <div class="form-group">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Email</label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
+        <!-- Email -->
+        <div class="form-group">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Phone Number</label>
-        <input asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber"></span>
-    </div>
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number (e.g., 123-456-7890)" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Role</label>
-        <select asp-for="Role">
-            <option value="Student">Student</option>
-            <option value="Professor">Professor</option>
-        </select>
-        <span asp-validation-for="Role"></span>
-    </div>
+        <!-- Role -->
+        <div class="form-group">
+            <label asp-for="Role" class="form-label">Role</label>
+            <select asp-for="Role" class="form-control">
+                <option value="Student">Student</option>
+                <option value="Professor">Professor</option>
+            </select>
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Equipment</label>
-        <select asp-for="Equipment" asp-items="Html.GetEnumSelectList<BorrowingApp_Assign1.Models.EquipmentType>()"></select>
-        <span asp-validation-for="Equipment"></span>
-    </div>
+        <!-- Equipment -->
+        <div class="form-group">
+            <label asp-for="Equipment" class="form-label">Equipment</label>
+            <select asp-for="Equipment" asp-items="Html.GetEnumSelectList<BorrowingApp_Assign1.Models.EquipmentType>()" class="form-control">
+                <option value="">Select equipment</option>
+            </select>
+            <span asp-validation-for="Equipment" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Duration (days)</label>
-        <input asp-for="Duration" />
-        <span asp-validation-for="Duration"></span>
-    </div>
+        <!-- Duration (days) -->
+        <div class="form-group">
+            <label asp-for="Duration" class="form-label">Duration (days)</label>
+            <input asp-for="Duration" class="form-control" placeholder="Enter duration in days" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label>Details</label>
-        <textarea asp-for="Details"></textarea>
-    </div>
+        <!-- Details -->
+        <div class="form-group">
+            <label asp-for="Details" class="form-label">Details</label>
+            <textarea asp-for="Details" class="form-control" placeholder="Additional details"></textarea>
+        </div>
 
-    <button type="submit">Submit Request</button>
-</form>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
